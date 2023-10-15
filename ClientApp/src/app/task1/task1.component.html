@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                        <form>
+                        <div class="mb-3">
+                            <label for="input1" class="form-label">Enter a number</label>
+                            <input type="number"
+                                   [ngModelOptions]="{standalone: true}"
+                                   [(ngModel)]="userNumber"
+                                   class="form-control"
+                                   id="input1" aria-describedby="number"
+                                   placeholder="Enter a number please">
+                            <div *ngIf="this.userNumber < 1 || this.userNumber >= 1000" style="color: red">
+                                Invalid number, it should be a number between 0 and 999.
+                            </div>
+                        </div>
+
+                        <button [disabled]=" this.userNumber < 1 || this.userNumber >= 1000" type="submit" class="btn btn-primary" (click)="processNumber()">Process Number</button>
+                        </form>
+                </div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <h3>{{this.result}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
